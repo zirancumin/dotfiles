@@ -61,6 +61,9 @@
 @define-color orange #e69875;
 
 
+/* More custom colors */
+@define-color deepblue #7a88eb;
+
 /* Module-specific colors */
 @define-color workspaces-color @foreground;
 @define-color workspaces-focused-bg @green;
@@ -84,6 +87,8 @@
 @define-color battery-critical-color @red;
 @define-color network-color @blue;
 @define-color network-disconnected-color @red;
+@define-color bluetooth-color @deepblue;
+@define-color bluetooth-disabled-color @red;
 @define-color pulseaudio-color @orange;
 @define-color pulseaudio-muted-color @red;
 @define-color backlight-color @yellow;
@@ -98,8 +103,8 @@
     /* Base styling for all modules */
     border: none;
     border-radius: 0;
-    font-family: "Iosevka Nerd Font";
-    font-size: 18px;
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 22px;
     min-height: 0;
 }
 
@@ -112,7 +117,7 @@ window#waybar {
 
 /* Common module styling with border-bottom */
 #mode, #mpd, #custom-weather, #custom-playerctl, #clock, #cpu,
-#memory, #temperature, #battery, #network, #pulseaudio,
+#memory, #temperature, #battery, #network, #bluetooth, #pulseaudio,
 #backlight, #disk, #custom-uptime, #custom-updates, #custom-quote,
 #idle_inhibitor, #tray {
     padding: 0 10px;
@@ -230,11 +235,22 @@ window#waybar {
 #network {
     color: @network-color;
     border-bottom-color: @network-color;
+    padding-right: 18px;
 }
 
 #network.disconnected {
     color: @network-disconnected-color;
     border-bottom-color: @network-disconnected-color;
+}
+
+#bluetooth {
+    color: @bluetooth-color;
+    border-bottom-color: @bluetooth-color;
+}
+
+#bluetooth.disabled {
+    color: @bluetooth-disabled-color;
+    border-bottom-color: @bluetooth-disabled-color;
 }
 
 #pulseaudio {

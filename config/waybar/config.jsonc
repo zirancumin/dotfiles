@@ -4,10 +4,11 @@
     "height": 30,
     "spacing": 1,
     "margin": 0,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/weather", "custom/quote"],
+    // idle_inhibitor
+    "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    //battery //disk //uptime //updates //systray //custom/uptime //custom/updates
-    "modules-right": ["clock", "pulseaudio", "backlight", "network", "cpu", "memory", "temperature", "battery", "disk", "uptime", "updates", "tray"],
+    // battery disk temperature uptime updates systray custom/uptime custom/updates
+    "modules-right": ["clock", "pulseaudio", "backlight", "cpu", "memory", "battery", "disk", "network", "bluetooth", "tray"],
 
 
     "sway/workspaces": {
@@ -87,8 +88,8 @@
     },
 
     "clock": {
-        "format": "󰥔 {:%H:%M}",
-        "format-alt": "󰃮 {:%Y-%m-%d}",
+        "format": "󰥔 {:%Y-%m-%d,%H:%M}",
+        /* "format-alt": "󰃮 {:%Y-%m-%d}", */
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "month",
@@ -114,7 +115,7 @@
     },
 
     "cpu": {
-        "format": "󰘚 {usage}%",
+        "format": "󰘚 {usage:02}%",
         "tooltip": true,
         "interval": 1,
         "on-click": "foot -e htop"
@@ -127,7 +128,7 @@
     },
 
     "temperature": {
-	"thermal-zone": 5,
+	      "thermal-zone": 5,
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["󱃃", "󰔏", "󱃂"],
@@ -148,13 +149,21 @@
     },
 
     "network": {
-        "format-wifi": "󰖩 {essid} ({signalStrength}%)",
+        // "format-wifi": "󰖩 {essid} ({signalStrength}%)",
+        "format-wifi": "\udb81\udda9",
         "format-ethernet": "󰈀 {ifname}",
         "format-linked": "󰈀 {ifname} (No IP)",
-        "format-disconnected": "󰖪 Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        // "format-disconnected": "󰖪 Disconnected",
+        "format-disconnected": "\udb81\uddaa",
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "foot -e nmtui"
+    },
+
+    "bluetooth": {
+        "format": "\udb80\udcaf",
+        "format-disabled": "\udb80\udcb2",
+        "on-click": "blueman-manager"
     },
 
     "pulseaudio": {
@@ -186,7 +195,7 @@
 
     "disk": {
         "interval": 30,
-        "format": "󰋊 {percentage_used}%",
+        "format": "\uf0c7 {percentage_used}%",
         "path": "/",
         "on-click": "foot -e gdu /"
     },
