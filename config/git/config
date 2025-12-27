@@ -1,0 +1,7 @@
+[core]
+  editor="vim"
+[init]
+  defaultBranch="main"
+[user]
+  email="sdfox05@gmail.com"
+  name="Zi Ran"
