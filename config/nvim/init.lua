@@ -19,7 +19,6 @@
 --]]
 
 -- configs
-vim.cmd('syntax off')
 vim.o.number = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -48,6 +47,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.cmd('normal! g`"')
+    end
+  end,
+})
+
 -- ============================== Plugins ================================
 --[[
 Using vim-plugin(https://github.com/junegunn/vim-plug) to manage plugins, run 
@@ -62,6 +70,9 @@ vim.call('plug#', 'hrsh7th/cmp-buffer')
 vim.call('plug#', 'hrsh7th/cmp-path')
 vim.call('plug#', 'onsails/lspkind.nvim')
 vim.call('plug#', 'nvim-treesitter/nvim-treesitter')
+vim.call('plug#', 'folke/tokyonight.nvim')
+vim.call('plug#', 'nvim-tree/nvim-tree.lua')
+vim.call('plug#', 'nvim-tree/nvim-web-devicons')
 vim.call('plug#end')
 
 -- ============================== LSP ====================================
@@ -151,3 +162,25 @@ if ok then
     },
   })
 end
+
+-- ==================== Color Theme ====================
+vim.cmd([[colorscheme tokyonight]])
+
+-- ========================= Side Bar ==============================
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if ok then
+  nvim_tree.setup({
+    view = {
+      side = "left",
+      width = 30,
+    },
+    renderer = {
+      highlight_git = true,
+      icons = {
+        show = { git = true },
+      },
+    },
+  })
+end
+
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = "Toggle side bar" })
