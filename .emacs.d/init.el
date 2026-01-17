@@ -1,9 +1,19 @@
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(ido-mode 1)
+(ido-everywhere 1)
 (global-display-line-numbers-mode 1)
+
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq-default make-backup-files nil)
+(setq-default isearch-lazy-count t)
 
 ;; Package manage setting
 (require 'package)
-  (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -11,6 +21,12 @@
   (package-install 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)   ; auto install packages not installed
+
+;; which-key
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode 1))
 
 ;; Geiser + Guile
 (use-package geiser)
