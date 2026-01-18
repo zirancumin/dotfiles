@@ -28,6 +28,30 @@
   :config
   (which-key-mode 1))
 
+;; markdown-mode
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'"       . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode)))
+
+;; undo/redo
+(use-package undo-fu
+  :ensure t
+  :bind (("C-/"   . undo-fu-only-undo)
+         ("C-?"   . undo-fu-only-redo)))
+(use-package undo-fu-session
+  :ensure t
+  :config
+  ;; Persistence
+  (setq undo-fu-session-directory "~/.emacs.d/undo-session/")
+  (global-undo-fu-session-mode))
+
+;; undo tree
+(use-package vundo
+  :ensure t
+  :bind ("C-x u" . vundo))
+
 ;; Geiser + Guile
 (use-package geiser)
 (use-package geiser-guile
