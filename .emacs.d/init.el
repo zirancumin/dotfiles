@@ -7,6 +7,7 @@
 
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+(setq-default auto-save-default nil)
 (setq-default make-backup-files nil)
 (setq-default isearch-lazy-count t)
 
