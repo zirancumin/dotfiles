@@ -1,6 +1,11 @@
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file 'noerror 'nomessage))
+
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
+
 (ido-mode 1)
 (ido-everywhere 1)
 (global-display-line-numbers-mode 1)
@@ -10,6 +15,10 @@
 (setq-default auto-save-default nil)
 (setq-default make-backup-files nil)
 (setq-default isearch-lazy-count t)
+
+(set-face-attribute 'default nil
+                    :family "Jetbrains Mono"
+                    :height 180)
 
 ;; Package manage setting
 (require 'package)
@@ -53,13 +62,11 @@
   :ensure t
   :bind ("C-x u" . vundo))
 
-;; Geiser + Guile
-(use-package geiser)
-(use-package geiser-guile
-  :after geiser)
+(use-package proof-general)
 
-(setq geiser-active-implementations '(guile))
-(setq geiser-default-implementation 'guile)
-
-(add-hook 'scheme-mode-hook #'geiser-mode)
+(use-package catppuccin-theme
+  :ensure t
+  :config
+  (setq catppuccin-flavor 'latte)
+  (load-theme 'catppuccin t))
 
