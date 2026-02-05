@@ -5,7 +5,7 @@
     "spacing": 1,
     "margin": 0,
     // idle_inhibitor
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["sway/workspaces", "hyprland/workspaces"],
     "modules-center": [],
     // battery disk temperature uptime updates systray custom/uptime custom/updates
     "modules-right": ["clock", "pulseaudio", "backlight", "cpu", "memory", "battery", "disk", "network", "bluetooth", "tray"],
@@ -38,6 +38,19 @@
 
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}",
+        "show-special": true,
+        "special-visible-only": true,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        }
     },
 
     "custom/playerctl": {
