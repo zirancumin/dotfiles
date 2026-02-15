@@ -64,9 +64,7 @@
 
 (use-package proof-general)
 
-(use-package catppuccin-theme
+(use-package leuven-theme
   :ensure t
   :config
-  (setq catppuccin-flavor 'latte)
-  (load-theme 'catppuccin t))
-
+  (load-theme 'leuven t))

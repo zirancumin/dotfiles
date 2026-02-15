@@ -9,7 +9,3 @@ size = 18
 family = "JetBrains Mono"
 style = "Regular"
 
-[terminal]
-
-[terminal.shell]
-program = "/usr/bin/fish"

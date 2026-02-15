@@ -12,3 +12,9 @@
 .config/systemd
 
 *.bak
+
+.emacs.d/custom.el
+.emacs.d/eln-cache
+.emacs.d/elpa
+.emacs.d/ido.last
+.emacs.d/undo-session
