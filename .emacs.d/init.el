@@ -68,3 +68,15 @@
   :ensure t
   :config
   (load-theme 'leuven t))
+
+;; add LaTeX support in markdown-mode
+;; emacs-app need some environment varibales
+(add-to-list 'exec-path "/Library/TeX/texbin")
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
+(use-package texfrag)
+(add-hook 'markdown-mode-hook #'texfrag-mode)
