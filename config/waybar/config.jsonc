@@ -128,14 +128,14 @@
     },
 
     "cpu": {
-        "format": "󰘚 {usage:02}%",
+        "format": "󰍛 {usage:02}%",
         "tooltip": true,
         "interval": 1,
         "on-click": "foot -e htop"
     },
 
     "memory": {
-        "format": "󰍛 {}%",
+        "format": "󰘚 {percentage:02}%",
         "interval": 1,
         "on-click": "foot -e htop"
     },
