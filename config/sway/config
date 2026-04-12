@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# Explicitly add xwayland support
+xwayland enable
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
