@@ -2,19 +2,28 @@
 (when (file-exists-p custom-file)
   (load custom-file 'noerror 'nomessage))
 
+;; Settings about GUI
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; For better experience
 (ido-mode 1)
 (ido-everywhere 1)
 (global-display-line-numbers-mode 1)
+(save-place-mode 1)
 
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default auto-save-default nil)
 (setq-default make-backup-files nil)
 (setq-default isearch-lazy-count t)
+
+;; Settings about clipboard and kill-ring
+(setq select-enable-clipboard t)
+(setq select-enable-primary t)
+(setq save-interprogram-paste-before-kill t)
+(setq kill-do-not-save-duplicates t)
 
 (set-face-attribute 'default nil
                     :family "Jetbrains Mono"
@@ -64,7 +73,17 @@
 
 (use-package proof-general)
 
-(use-package leuven-theme
+;; (use-package leuven-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'leuven t))
+
+(load-theme 'catppuccin t)
+
+;; xclip
+(use-package xclip
   :ensure t
   :config
-  (load-theme 'leuven t))
+  (setq xclip-program "wl-copy")
+  (setq xclip-method 'wl-copy)
+  (xclip-mode 1))
