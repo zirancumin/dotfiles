@@ -41,9 +41,9 @@ seat * xcursor_theme Adwaita 32
 # Example configuration:
 #
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          timeout 605 'systemctl suspend' \
+          timeout 1200 'swaylock -f -c 000000' \
+          timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          timeout 1805 'systemctl suspend' \
           before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
