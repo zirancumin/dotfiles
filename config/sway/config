@@ -24,7 +24,7 @@ set $menu fuzzel
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ../assets/wallhaven-d8pyvo_3840x2160.png fill
+output * bg ../assets/wallpaper.png fill
 #
 # Example configuration:
 #
