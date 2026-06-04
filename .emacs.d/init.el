@@ -78,7 +78,10 @@
 ;;   :config
 ;;   (load-theme 'leuven t))
 
-(load-theme 'catppuccin t)
+(use-package catppuccin-theme
+  :ensure t
+  :config
+  (load-theme 'catppuccin t))
 
 ;; xclip
 (use-package xclip
